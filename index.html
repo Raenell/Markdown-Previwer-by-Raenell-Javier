@@ -22,7 +22,7 @@
       }
 
       function setDefault() {
-        let defaultText = `
+        let defaultText = `\
 # Useful programmer
 ## a Markdown Previewer
 [Learn more about UsfeulProgrammer.org](http://www.usefulProgrammer.org).
@@ -56,26 +56,29 @@
 
 **This is an example of Bolded Text**`;
 
-        let editorField = document.getElementById("editor").value;
+        let editorField = document.getElementById("editor");
         let previewElement = document.getElementById("preview");
         editorField.value = defaultText;
         previewElement.innerHTML = marked(defaultText);
       }
     </script>
   </head>
-  <body onload="setDefault()">
+  <body onload="setDefault()" class="bg-success">
     <div class="container-fluid">
     <div class="row">
-      <div class="col text-center text-white bg-success">
+      <div class="col text-center text-white bg-success my-3">
         <h1>Markdown Previewer by Raenell Javier</h1>
       </div>
     </div>
       <div class="row">
-        <div class="col-6 bg-primary">
-          <textarea id="editor" onkeyup="updatePreview()"></textarea>
+        <div class="col-6 bg-primary d-flex flex-column">
+          <h2 class="text-white text-center my-3">Editor</h2>
+          <div class="form-group flex-grow-1 d-flex flex-column">
+            <textarea id="editor" onkeyup="updatePreview()" class="form-control flex-grow-1"></textarea>
+          </div>
         </div>
         <div class="col-6 bg-danger">
-          <p>the markdown previewer will be here</p>
+          <h2 class="text-white text-center my-3">Preview</h2>
           <div id="preview"></div>
         </div>
       </div>
